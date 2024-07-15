@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h1>Lista de Profissionais</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Especialidade</th>
+                    <th scope="col">CR</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Ação</th>
+                    <th><a style="color: black; text-decoration: none;" href="/especialistas/createespecialista/">+</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for especialistas in especialistas %}
+                <tr>
+                    <td>{{ especialistas.id }}</td>
+                    <td>{{ especialistas.nome }}</td>
+                    <td>{{ especialistas.especialidade }}</td>
+                    <td>{{ especialistas.cr }}</td>
+                    <td>{{ especialistas.endereco }}</td>
+                    <td>{{ especialistas.telefone }}</td>
+                    <td>{{ especialistas.descricao }}</td>
+                    <td><a style="color: black; text-decoration: none;" href="/especialistas/updateespecialista/{{especialistas.id}}">Editar</a>
+                    <td><a style="color: black; text-decoration: none;" href="/especialistas/delete/confirm/{{especialistas.id}}">Excluir</a>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
